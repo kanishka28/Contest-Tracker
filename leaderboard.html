@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="styleLeaderBoard.css" />
+</head>
+<body>
+  <header>
+    <!-- <h1>Leaderboard</h1> -->
+  </header>
+  <header class="navbar">
+  <div class="nav-left">
+    <h1>Leaderboard</h1>
+  </div>
+  <div class="nav-right">
+    <a href="#" class="how-it-works">How It works?</a>
+    <button class="dark-toggle" id="themeToggle">🌞</button>
+    <button class="login-btn">Login</button>
+  </div>
+</header>
+<hr />
+
+
+  <section class="top-three">
+    <div class="card second">
+      <img src="/profile pic.jpg" alt="Rajat Joshi">
+      <h3>Rajat Joshi</h3>
+      <p>@Rajat.18</p>
+      <div class="score">C Score: <strong>885.39</strong></div>
+      <div class="rank">#2</div>
+    </div>
+    <div class="card first">
+      <img src="/profile-pic-2.avif" alt="Pratham">
+      <h3>Pratham Lashkari</h3>
+      <p>@Pratham</p>
+      <div class="score">C Score: <strong>887.09</strong></div>
+      <div class="rank gold">🥇</div>
+    </div>
+    <div class="card third">
+      <img src="/profile-pic-3.webp" alt="Anuj Singh">
+      <h3>Anuj Singh</h3>
+      <p>@as828</p>
+      <div class="score">C Score: <strong>880.58</strong></div>
+      <div class="rank">#3</div>
+    </div>
+  </section>
+
+  <section class="global-ranking">
+    <h2>Global Ranking <span>(Cumulative)</span></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>Institution</th>
+          <th class="Rank">Rank</th>
+          <th>C Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pratham Lashkari</td>
+          <td>Sushila Devi Bansal College of Technology</td>
+          <td>🥇</td>
+          <td>887.09</td>
+        </tr>
+        <tr>
+          <td>Rajat Joshi</td>
+          <td>Graphic era hill university dehradun</td>
+          <td>🥈</td>
+          <td>885.39</td>
+        </tr>
+        <tr>
+          <td>Anuj Singh</td>
+          <td>National Institute of Technology Raipur</td>
+          <td>🥉</td>
+          <td>880.58</td>
+        </tr>
+        <tr>
+          <td>Deepak</td>
+          <td>Sharda University</td>
+          <td>#4</td>
+          <td>880.08</td>
+        </tr>
+        <tr>
+          <td>Rameez Parwez</td>
+          <td>Haldia Institute of Technology</td>
+          <td>#5</td>
+          <td>879.26</td>
+        </tr>
+        <tr>
+          <td>Sajal Namdeo</td>
+          <td>Indian Institute of Information Technology</td>
+          <td>#6</td>
+          <td>878.04</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <script>
+  const toggleBtn = document.getElementById("themeToggle");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    toggleBtn.textContent = document.body.classList.contains("dark-mode") ? "🌙" : "🌞";
+  });
+</script>
+
+</body>
+</html>

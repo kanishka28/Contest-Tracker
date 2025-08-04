@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeTrack - Contest Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #111827;
+      --text-color: #ffffff;
+      --sidebar-color: #1f2937;
+      --hover-color: #374151;
+      --accent-color: #f97316;
+    }
+
+    body.light {
+      --bg-color: #ffffff;
+      --text-color: #1f2937;
+      --sidebar-color: #f3f4f6;
+      --hover-color: #e5e7eb;
+      --accent-color: #ef4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    aside {
+      width: 250px;
+      background-color: var(--sidebar-color);
+      height: 100vh;
+      padding: 20px;
+    }
+
+    aside h1 {
+      font-size: 24px;
+      color: var(--accent-color);
+      margin-bottom: 40px;
+    }
+
+    nav a {
+      display: block;
+      padding: 10px 0;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: var(--hover-color);
+      border-radius: 8px;
+      padding-left: 10px;
+    }
+
+    .theme-toggle {
+      margin-top: 30px;
+      cursor: pointer;
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .hero span {
+      color: var(--accent-color);
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #9ca3af;
+      margin-bottom: 20px;
+    }
+
+    .hero .buttons button {
+      padding: 12px 20px;
+      margin: 0 10px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-question {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .btn-profile {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    .cards-preview {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .preview-box {
+      background: var(--sidebar-color);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      width: 250px;
+      color: var(--text-color);
+    }
+  </style>
+</head>
+
+<body>
+  <aside>
+    <h1>CodeTrack</h1>
+    <nav>
+      <a href="/index.html" class="active">Home</a>
+      <a href="/sheets.html">Explore sheets</a>
+      <a href="/contest.html">Contests</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+    </nav>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <h1>Track, analyze & share</h1>
+      <p><span>CodeTrack</span> helps you navigate and track your coding journey to success</p>
+      <div class="buttons">
+        <button class="btn-question">Question Tracker</button>
+        <button class="btn-profile">Profile Tracker →</button>
+      </div>
+    </section>
+
+    <section class="cards-preview">
+      <div class="preview-box">
+        <h3>Total Questions</h3>
+        <p><strong>1010</strong></p>
+      </div>
+      <div class="preview-box">
+        <h3>Total Active Days</h3>
+        <p><strong>348</strong></p>
+      </div>
+      <div class="preview-box">
+        <h3>Total Contests</h3>
+        <p><strong>16</strong></p>
+      </div>
+      <div class="preview-box">
+        <h3>Problems Solved</h3>
+        <p><strong>127</strong></p>
+      </div>
+    </section>
+
+    <section id="coding-platforms" style="padding: 50px 20px; text-align: center; background-color: white;">
+  <h2 style="font-size: 2.5em; margin-bottom: 10px; color: #111;">Your Favourite Coding Platforms</h2>
+  <p style="font-size: 1.2em; color: #888; margin-bottom: 40px;">
+    Streamlined in <strong>Code Track</strong> to simplify your coding journey
+  </p>
+  <img src="/owl-black-final.PNG" alt="Coding Platforms" style="max-width: 90%; height: auto;" />
+</section>
+
+  </main>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+  </script>
+</body>
+
+</html>

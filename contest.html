@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CodeTrack - Calendar View</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      background-color: #fff;
+    }
+    .dark-mode header {
+      background-color: #222;
+    }
+    h1 {
+      margin: 0;
+    }
+    .toggle-btn {
+      padding: 6px 12px;
+      cursor: pointer;
+      border: none;
+      background-color: #444;
+      color: #fff;
+      border-radius: 5px;
+    }
+    .calendar {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      table-layout: fixed;
+    }
+    .calendar th, .calendar td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 100px;
+      vertical-align: top;
+      text-align: left;
+    }
+    .calendar th {
+      background-color: #eee;
+    }
+    .dark-mode .calendar th {
+      background-color: #333;
+    }
+    .calendar td {
+      background-color: #fff;
+    }
+    .dark-mode .calendar td {
+      background-color: #1e1e1e;
+    }
+    .event {
+      background-color: #007bff;
+      color: white;
+      padding: 4px;
+      border-radius: 4px;
+      font-size: 0.8em;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Upcoming Contests</h1>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+  </header>
+
+  <table class="calendar" id="calendar">
+    <thead>
+      <tr>
+        <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+      </tr>
+    </thead>
+    <tbody id="calendar-body">
+      <!-- Calendar rows go here -->
+    </tbody>
+  </table>
+
+  <script>
+    const startDate = new Date(2025, 6, 27); // July 27, 2025
+
+    const contests = {
+      "02-08-2025": ["LeetCode Weekly Contest 300"],
+      "03-08-2025": ["Biweekly Contest 108"],
+      "06-08-2025": ["Starters 198"],
+      "07-08-2025": ["Atto Round 1 (Codeforces Round 1041)"],
+      "09-08-2025": ["AtCoder Beginner Contest 418"],
+      "10-08-2025": ["Weekly Contest 462", "Codeforces Round (Div. 3)"],
+      "13-08-2025": ["Atto Round 2"],
+      "16-08-2025": ["AtCoder Beginner Contest 419"],
+      "21-08-2025": ["Job-A-thon Hiring Challenge"],
+      "24-08-2025": ["Biweekly Contest 109"],
+      "30-08-2025": ["Codeforces Global Round 25", "Weekly Contest 463"],
+      "31-08-2025": ["AtCoder Beginner Contest 420"]
+    };
+
+    function generateCalendar() {
+      const tbody = document.getElementById("calendar-body");
+      tbody.innerHTML = '';
+      let day = new Date(startDate);
+      for (let week = 0; week < 6; week++) {
+        let row = "<tr>";
+        for (let d = 0; d < 7; d++) {
+          const dd = String(day.getDate()).padStart(2, '0');
+          const mm = String(day.getMonth() + 1).padStart(2, '0');
+          const yyyy = day.getFullYear();
+          const key = `${dd}-${mm}-${yyyy}`;
+          let events = "";
+          if (contests[key]) {
+            contests[key].forEach(name => {
+              events += `<div class="event">${name}</div>`;
+            });
+          }
+          row += `<td><strong>${dd}</strong>${events}</td>`;
+          day.setDate(day.getDate() + 1);
+        }
+        row += "</tr>";
+        tbody.innerHTML += row;
+      }
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    generateCalendar();
+  </script>
+</body>
+</html>
