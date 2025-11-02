@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Active Days - CodeTrack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #111827;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .heatmap-container {
+      background-color: #1f2937;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 850px;
+    }
+
+    .heatmap-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .heatmap-header h2 {
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+
+    .stats {
+      font-size: 0.9em;
+      color: #9ca3af;
+    }
+
+    .months {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85em;
+      color: #9ca3af;
+      margin-bottom: 6px;
+      padding: 0 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(53, 12px);
+      grid-gap: 3px;
+      justify-content: center;
+    }
+
+    .day {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      background-color: #2d3748;
+      transition: background 0.2s ease;
+    }
+
+    .level-1 { background-color: #14532d; }  /* Light green */
+    .level-2 { background-color: #15803d; }  /* Medium */
+    .level-3 { background-color: #22c55e; }  /* Brighter green */
+    .level-4 { background-color: #4ade80; }  /* High activity */
+  </style>
+</head>
+<body>
+  <div class="heatmap-container">
+    <div class="heatmap-header">
+      <h2><strong>173</strong> submissions in the past one year</h2>
+      <div class="stats">
+        Total active days: <strong>65</strong> &nbsp;&nbsp;|&nbsp;&nbsp; Max streak: <strong>6</strong>
+      </div>
+    </div>
+
+    <div class="months">
+      <span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span>
+      <span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span>
+      <span>Sep</span><span>Oct</span>
+    </div>
+
+    <div class="grid" id="heatmap"></div>
+  </div>
+
+  <script>
+    const grid = document.getElementById("heatmap");
+
+    // Create 365 squares
+    for (let i = 0; i < 365; i++) {
+      const div = document.createElement("div");
+      div.classList.add("day");
+
+      // Randomly assign activity levels for visual variety
+      const activity = Math.random();
+      if (activity > 0.8) div.classList.add("level-4");
+      else if (activity > 0.6) div.classList.add("level-3");
+      else if (activity > 0.4) div.classList.add("level-2");
+      else if (activity > 0.2) div.classList.add("level-1");
+
+      grid.appendChild(div);
+    }
+  </script>
+</body>
+</html>

@@ -37,6 +37,7 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
+    /* Sidebar */
     aside {
       width: 250px;
       background-color: var(--sidebar-color);
@@ -65,14 +66,19 @@
       padding-left: 10px;
     }
 
-    .theme-toggle {
-      margin-top: 30px;
+    /* Theme icon in top-right corner */
+    .theme-icon {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-size: 24px;
       cursor: pointer;
-      background-color: var(--accent-color);
-      color: #fff;
-      padding: 8px 12px;
-      border: none;
-      border-radius: 6px;
+      color: var(--accent-color);
+      transition: transform 0.3s;
+    }
+
+    .theme-icon:hover {
+      transform: rotate(20deg);
     }
 
     main {
@@ -125,6 +131,7 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      margin-bottom: 50px;
     }
 
     .preview-box {
@@ -134,7 +141,25 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
       width: 250px;
       color: var(--text-color);
+      color: #f97316;
     }
+
+     .cards-preview .preview-box a {
+  color: white !important;     /* forces the color to apply */
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.cards-preview .preview-box a:hover {
+  color: #e98137 !important;   /* hover color */
+  text-decoration: underline;
+}
+
+
   </style>
 </head>
 
@@ -142,13 +167,15 @@
   <aside>
     <h1>CodeTrack</h1>
     <nav>
-      <a href="/index.html" class="active">Home</a>
-      <a href="/sheets.html">Explore sheets</a>
-      <a href="/contest.html">Contests</a>
-      <a href="/leaderboard.html">Leaderboard</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="sheets.html">Explore sheets</a>
+      <a href="contest.html">Contests</a>
+      <a href="leaderboard.html">Leaderboard</a>
     </nav>
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
   </aside>
+
+  <!-- Sun/Moon Theme Icon -->
+  <div class="theme-icon" id="themeIcon" onclick="toggleTheme()">🌙</div>
 
   <main>
     <section class="hero">
@@ -162,38 +189,43 @@
 
     <section class="cards-preview">
       <div class="preview-box">
-        <h3>Total Questions</h3>
-        <p><strong>1010</strong></p>
+        <a href="/question.html">Total Questions Solved</a>
+        <p><strong>188</strong></p>
       </div>
+
       <div class="preview-box">
-        <h3>Total Active Days</h3>
-        <p><strong>348</strong></p>
+        <a href="/activeDays.html">Total Active Days</a>
+        <p><strong>302</strong></p>
       </div>
+
       <div class="preview-box">
-        <h3>Total Contests</h3>
-        <p><strong>16</strong></p>
+        <a href="/TotalContest.html">Total Contests Attempted</a>
+        <p><strong>10</strong></p>
       </div>
-      <div class="preview-box">
-        <h3>Problems Solved</h3>
-        <p><strong>127</strong></p>
-      </div>
+
     </section>
 
     <section id="coding-platforms" style="padding: 50px 20px; text-align: center; background-color: white;">
-  <h2 style="font-size: 2.5em; margin-bottom: 10px; color: #111;">Your Favourite Coding Platforms</h2>
-  <p style="font-size: 1.2em; color: #888; margin-bottom: 40px;">
-    Streamlined in <strong>Code Track</strong> to simplify your coding journey
-  </p>
-  <img src="/owl-black-final.PNG" alt="Coding Platforms" style="max-width: 90%; height: auto;" />
-</section>
-
+      <h2 style="font-size: 2.5em; margin-bottom: 10px; color: #111;">Your Favourite Coding Platforms</h2>
+      <p style="font-size: 1.2em; color: #888; margin-bottom: 40px;">
+        Streamlined in <strong>Code Track</strong> to simplify your coding journey
+      </p>
+      <img src="/owl-black-final.PNG" alt="Coding Platforms" style="max-width: 90%; height: auto;" />
+    </section>
   </main>
 
   <script>
     function toggleTheme() {
       document.body.classList.toggle('light');
+      const icon = document.getElementById('themeIcon');
+      if (document.body.classList.contains('light')) {
+        icon.textContent = '☀️';
+      } else {
+        icon.textContent = '🌙';
+      }
     }
   </script>
 </body>
 
 </html>
+

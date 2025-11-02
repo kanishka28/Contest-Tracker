@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questions Solved - CodeTrack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #111827;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .stats-container {
+      background: #1f2937;
+      border-radius: 16px;
+      padding: 40px 60px;
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .circle {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #f59e0b calc((188 / 3735) * 360deg),
+        #1f2937 0
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle-inner {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      background: #111827;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle-inner h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    .circle-inner p {
+      color: #9ca3af;
+      font-size: 0.9em;
+      margin: 4px 0 0 0;
+    }
+
+    .difficulty-boxes {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .difficulty {
+      background: #374151;
+      padding: 10px 18px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 140px;
+    }
+
+    .difficulty.easy {
+      border-left: 4px solid #10b981;
+    }
+    .difficulty.medium {
+      border-left: 4px solid #f59e0b;
+    }
+    .difficulty.hard {
+      border-left: 4px solid #ef4444;
+    }
+
+    .difficulty span {
+      font-weight: 600;
+    }
+
+    .difficulty p {
+      margin: 0;
+      font-size: 0.9em;
+      color: #d1d5db;
+    }
+
+    .attempting {
+      text-align: center;
+      margin-top: 10px;
+      color: #9ca3af;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="stats-container">
+    <div class="circle">
+      <div class="circle-inner">
+        <h1>188</h1>
+        <p>of 3735 Solved</p>
+      </div>
+    </div>
+    <div class="difficulty-boxes">
+      <div class="difficulty easy">
+        <span>Easy</span>
+        <p>63 / 910</p>
+      </div>
+      <div class="difficulty medium">
+        <span>Med.</span>
+        <p>111 / 1944</p>
+      </div>
+      <div class="difficulty hard">
+        <span>Hard</span>
+        <p>14 / 881</p>
+      </div>
+      <div class="attempting">4 Attempting</div>
+    </div>
+  </div>
+</body>
+</html>
